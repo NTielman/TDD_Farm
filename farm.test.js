@@ -55,3 +55,19 @@ describe("get_total_yield", () => {
         expect(get_total_yield({ crops })).toBe(0);
     });
 });
+
+/*const corn = {
+    name: "corn",
+    yield: 30,
+    factors: {
+        sun: {
+            low: -50,
+            medium: 0,
+            high: 50,
+        },
+    },
+};
+
+const environment_factors = {
+    sun: "low",
+}; */
