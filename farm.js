@@ -1,21 +1,21 @@
 // Utility functions
-const get_costs_for_crop = (plantObj) => {
-    const cost = plantObj.cost;
-    const crops = plantObj.crops;
+const get_costs_for_crop = (crop) => {
+    const cost = crop.crop.cost;
+    const crops = crop.num_crops;
 
     return cost * crops;
 };
 
-const get_revenue_for_crop = (plantObj) => {
-    const cropYield = plantObj.crops * plantObj.yield;
-    const salePrice = plantObj.salePrice;
+const get_revenue_for_crop = (crop) => {
+    const cropYield = crop.num_crops * crop.crop.yield;
+    const salePrice = crop.crop.salePrice;
 
     return salePrice * cropYield;
 };
 
-const get_profit_for_crop = (plantObj) => {
-    const cost = get_costs_for_crop(plantObj);
-    const revenue = get_revenue_for_crop(plantObj);
+const get_profit_for_crop = (crop) => {
+    const cost = get_costs_for_crop(crop);
+    const revenue = get_revenue_for_crop(crop);
 
     return revenue - cost;
 };
@@ -27,11 +27,18 @@ const get_total_profit = (arrayOfCrops) => {
     return totalProfit;
 };
 
-const get_yield_for_plant = (plantObj) => plantObj.yield;
+const get_yield_for_plant = (plant) => plant.yield;
 
-const get_yield_for_crop = (str) => str;
-const get_total_yield = (str) => str;
+const get_yield_for_crop = (crop) => {
+    return crop.num_crops * get_yield_for_plant(crop.crop);
+};
 
+const get_total_yield = (arrayOfCrops) => {
+    const cropYield = arrayOfCrops.map(crop => get_yield_for_crop(crop));
+    const totalYield = cropYield.reduce((acumulator, currentValue) => acumulator + currentValue);
+
+    return totalYield;
+};
 
 module.exports = {
     get_costs_for_crop,
