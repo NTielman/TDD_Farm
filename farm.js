@@ -5,7 +5,14 @@ const get_costs_for_crop = (plantObj) => {
 
     return cost * crops;
 };
-const get_revenue_for_crop = (str) => str;
+
+const get_revenue_for_crop = (plantObj) => {
+    const cropYield = plantObj.crops * plantObj.yield;
+    const salePrice = plantObj.salePrice;
+
+    return salePrice * cropYield;
+};
+
 const get_profit_for_crop = (str) => str;
 const get_total_profit = (str) => str;
 const get_yield_for_plant = (str) => str;

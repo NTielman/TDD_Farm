@@ -93,8 +93,8 @@ test("Get costs per crop", function () {
 
 test("Get revenue per crop", function () {
 
-    const expected = [90, 10, 375];
-    const output = myCrops.map(plant =>  get_revenue_for_crop(plant));
+    const expected = [20700, 60, 2250];
+    const output = myCrops.map(plant => get_revenue_for_crop(plant));
     expect(output).toEqual(expected);
 });
 
