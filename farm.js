@@ -20,8 +20,15 @@ const get_profit_for_crop = (plantObj) => {
     return revenue - cost;
 };
 
-const get_total_profit = (str) => str;
-const get_yield_for_plant = (str) => str;
+const get_total_profit = (arrayOfCrops) => {
+    const cropProfit = arrayOfCrops.map(crop => get_profit_for_crop(crop));
+    const totalProfit = cropProfit.reduce((acumulator, currentValue) => acumulator + currentValue);
+
+    return totalProfit;
+};
+
+const get_yield_for_plant = (plantObj) => plantObj.yield;
+
 const get_yield_for_crop = (str) => str;
 const get_total_yield = (str) => str;
 

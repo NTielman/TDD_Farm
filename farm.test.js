@@ -105,16 +105,19 @@ test("Get profit per crop", function () {
     expect(output).toEqual(expected);
 });
 
-// describe("get_yield_for_plant", () => {
-//     const corn = {
-//         name: "corn",
-//         yield: 30,
-//     };
+test("Get total profit for all crops", function () {
 
-//     test("Get yield for plant with no environment factors", () => {
-//         expect(get_yield_for_plant(corn)).toBe(30);
-//     });
-// });
+    const expected = 22400.50;
+    const output = get_total_profit(myCrops);
+    expect(output).toEqual(expected);
+});
+
+test("Get yield for plant with no environment factors", function () {
+
+    expect(get_yield_for_plant(corn)).toBe(30);
+    expect(get_yield_for_plant(apple)).toBe(5);
+    expect(get_yield_for_plant(avocado)).toBe(6);
+});
 
 // describe("get_yield_for_crop", () => {
 //     test("Get yield for crop, simple", () => {
