@@ -98,6 +98,13 @@ test("Get revenue per crop", function () {
     expect(output).toEqual(expected);
 });
 
+test("Get profit per crop", function () {
+
+    const expected = [20470, 55.50, 1875];
+    const output = myCrops.map(plant => get_profit_for_crop(plant));
+    expect(output).toEqual(expected);
+});
+
 // describe("get_yield_for_plant", () => {
 //     const corn = {
 //         name: "corn",
