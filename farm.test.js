@@ -11,9 +11,9 @@ const {
 //--------------------- declare test variables ---------------------
 const corn = {
     name: "corn",
-    cost: 1, //cost to plant 1 plant 
-    salePrice: 3, //price per kilo sold
-    yield: 30, //yield of 1 crop in kilo's
+    cost: 1, //cost in euro's to grow 1 plant 
+    salePrice: 3, //price in euro's per kilo sold
+    yield: 30, //yield of 1 plant in kilo's
 
     factors: { //environmental factors
         sun: {
@@ -26,9 +26,9 @@ const corn = {
 
 const apple = {
     name: "apple",
-    cost: 0.75, //cost to plant 1 plant 
-    salePrice: 2, //price per kilo sold
-    yield: 5, //yield of 1 crop in kilo's
+    cost: 0.75, //cost in euro's to grow 1 plant 
+    salePrice: 2, //price in euro's per kilo sold
+    yield: 5, //yield of 1 plant in kilo's
 
     factors: { //environmental factors
         sun: {
@@ -51,9 +51,9 @@ const apple = {
 
 const avocado = {
     name: "avocado",
-    cost: 5, //cost to plant 1 plant 
-    salePrice: 5, //price per kilo sold
-    yield: 6, //yield of 1 crop in kilo's
+    cost: 5, //cost in euro's to grow 1 plant 
+    salePrice: 5, //price in euro's per kilo sold
+    yield: 6, //yield of 1 plant in kilo's
 
     factors: { //environmental factors
         sun: {
@@ -152,10 +152,12 @@ test("Calculate total yield with multiple crops", () => {
         name: "pumpkin",
         yield: 4,
     };
+
     const crops = [
         { crop: corn, num_crops: 5 },
         { crop: pumpkin, num_crops: 2 },
     ];
+
     expect(get_total_yield(crops)).toBe(158);
 });
 

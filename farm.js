@@ -46,8 +46,8 @@ const get_yield_for_crop = (crop, environment_factors) => {
     return Math.round((cropYield + Number.EPSILON) * 100) / 100;
 };
 
-const get_total_yield = (arrayOfCrops) => {
-    const cropYield = arrayOfCrops.map(crop => get_yield_for_crop(crop));
+const get_total_yield = (arrayOfCrops, environment_factors) => {
+    const cropYield = arrayOfCrops.map(crop => get_yield_for_crop(crop, environment_factors));
     const totalYield = cropYield.reduce((acumulator, currentValue) => acumulator + currentValue);
 
     return Math.round((totalYield + Number.EPSILON) * 100) / 100;
