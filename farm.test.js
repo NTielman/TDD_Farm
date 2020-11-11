@@ -194,7 +194,6 @@ test("Get yield for plant with environment factors", () => {
     expect(get_yield_for_plant(avocado, environment_factors)).toBe(1.92);
 });
 
-/*
 test("Get yield for crop with environment factors", () => {
 
     const crops = {
@@ -202,7 +201,7 @@ test("Get yield for crop with environment factors", () => {
         num_crops: 10,
     };
 
-    expect(get_yield_for_crop(crops)).toBe(300);
+    expect(get_yield_for_crop(crops, environment_factors)).toBe(150);
 });
 
 test("Get profit per crop", () => {
@@ -213,21 +212,20 @@ test("Get profit per crop", () => {
         { crop: avocado, num_crops: 8 }
     ];
 
-    const expected = [1424, 185, 200];
-    const output = crops.map(plant => get_profit_for_crop(plant));
+    const expected = [704, 54.60, 36.80];
+    const output = crops.map(plant => get_profit_for_crop(plant, environment_factors));
     expect(output).toEqual(expected);
 });
 
 test("Get total profit for all crops", () => {
 
     const crops = [
-        { crop: corn, num_crops: 5 },
-        { crop: apple, num_crops: 150 },
-        { crop: avocado, num_crops: 67 }
+        { crop: corn, num_crops: 16 },
+        { crop: apple, num_crops: 20 },
+        { crop: avocado, num_crops: 8 }
     ];
 
-    const expected = 3507.50;
-    const output = get_total_profit(crops);
+    const expected = 795.40;
+    const output = get_total_profit(crops, environment_factors);
     expect(output).toEqual(expected);
 });
- */
